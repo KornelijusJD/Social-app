@@ -7,14 +7,16 @@ const withAuthentication = Component => {
       super(props);
       this.state = {
         authUser: null,
+        authed: false
       };
     }
     componentDidMount() {
-      this.listener = this.props.firebase.auth.onAuthStateChanged(
+      this.listener = this.props.firebase.onAuthUserListener(
         authUser => {
-          authUser
-            ? this.setState({ authUser })
-            : this.setState({ authUser: null });
+          this.setState({ authUser });
+        },
+        () => {
+          this.setState({ authUser: null });
         },
       );
     }
@@ -23,9 +25,11 @@ const withAuthentication = Component => {
     }
     render() {
       return (
-        <AuthUserContext.Provider value={this.state.authUser}>
-          <Component {...this.props} />
-        </AuthUserContext.Provider>
+        <div>
+          <AuthUserContext.Provider value={this.state.authUser}>
+            <Component {...this.props} />
+          </AuthUserContext.Provider>
+        </div>
       );
     }
   }

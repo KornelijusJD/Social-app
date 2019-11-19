@@ -1,13 +1,8 @@
 import app from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/database';
+
 const config = {
-    /*apiKey: "AIzaSyBTX_HAeLBvZnZgKsLN42qJVhVrt9oJUrk",
-    authDomain: "myturnonthexbox.firebaseapp.com",
-    databaseURL: "https://myturnonthexbox.firebaseio.com",
-    projectId: "myturnonthexbox",
-    storageBucket: "myturnonthexbox.appspot.com",
-    messagingSenderId: "822770441943",
-    appId: "1:822770441943:web:e43cbdf0be3e33db665a92"*/
     apiKey: "AIzaSyBUpVtjr3muUw0SZiAnCZw6GiOymNYtXTE",
     authDomain: "self-careapp.firebaseapp.com",
     databaseURL: "https://self-careapp.firebaseio.com",
@@ -21,21 +16,60 @@ const config = {
   class Firebase {
     constructor() {
       app.initializeApp(config);
-
+  
       this.auth = app.auth();
+      this.db = app.database();
     }
+  
     // *** Auth API ***
+  
     doCreateUserWithEmailAndPassword = (email, password) =>
-     this.auth.createUserWithEmailAndPassword(email, password);
-
-    doSignInWithEmailAndPassword = (email, password) =>
-     this.auth.signInWithEmailAndPassword(email, password);
-
-    doSignOut = () => this.auth.signOut();
-
-    doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
-    doPasswordUpdate = password =>
-     this.auth.currentUser.updatePassword(password);
+      this.auth.createUserWithEmailAndPassword(email, password);
     
+    doSignInWithEmailAndPassword = (email, password) =>
+      this.auth.signInWithEmailAndPassword(email, password);
+  
+    doSignOut = () => this.auth.signOut();
+  
+    doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
+  
+    doPasswordUpdate = password =>
+      this.auth.currentUser.updatePassword(password);
+    
+    test = () => {return this.auth.currentUser;}
+
+    // *** Merge Auth and DB User API *** //
+    onAuthUserListener = (next, fallback) =>
+    this.auth.onAuthStateChanged(authUser => {
+      if (authUser) {
+        this.user(authUser.uid)
+          .once('value')
+          .then(snapshot => {
+            console.log(snapshot.val());
+            const dbUser = snapshot.val();
+            // default empty roles
+            if (!dbUser.roles) {
+              dbUser.roles = {};
+            }
+            // merge auth and db user
+            authUser = {
+              uid: authUser.uid,
+              email: authUser.email,
+              ...dbUser,
+            };
+            next(authUser);
+          });
+      } else {
+        fallback();
+      }
+    });
+
+
+    // *** User API ***
+  
+    user = uid => this.db.ref(`users/`+uid);
+  
+    users = () => this.db.ref('users');
   }
+  
   export default Firebase;
