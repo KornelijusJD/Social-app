@@ -45,7 +45,6 @@ const config = {
         this.user(authUser.uid)
           .once('value')
           .then(snapshot => {
-            console.log(snapshot.val());
             const dbUser = snapshot.val();
             // default empty roles
             if (!dbUser.roles) {
