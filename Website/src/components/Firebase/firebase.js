@@ -65,10 +65,18 @@ const config = {
 
 
     // *** User API ***
-  
+    
     user = uid => this.db.ref(`users/`+uid);
   
     users = () => this.db.ref('users');
+
+    // *** Article API ***
+
+    article = aid => this.db.ref('articles/'+aid);
+
+    articles = () => this.db.ref('articles');
+
+    countRef = () => this.db.ref('articles/count');
   }
   
   export default Firebase;

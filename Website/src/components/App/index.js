@@ -10,6 +10,7 @@ import AccountPage from '../Account';
 import AdminPage from '../Admin';
 import Unauthorized from '../Unauthorized';
 import Messaging from '../Messaging';
+import Posted from '../Posted';
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
 
@@ -27,6 +28,7 @@ const App = () => (
       <Route path={ROUTES.ADMIN} component={AdminPage} />
       <Route path={ROUTES.UNAUTHORIZED} component={Unauthorized} />
       <Route path={ROUTES.MESSAGING} component={Messaging} />
+      <Route path={ROUTES.POSTED} component={Posted} />
     </div>
   </Router>
 );
