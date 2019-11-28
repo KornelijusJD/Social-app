@@ -31,7 +31,7 @@ const Navigation = () => (
 );
 
 const NavigationAuth = ({ authUser }) => (
-  <div>
+  <div className={"infront"}>
     <AuthUserContext.Consumer>
         {authUser => (
           <div>
@@ -58,7 +58,7 @@ const NavigationAuth = ({ authUser }) => (
 
           )}
           
-         <h1 className={"hover"}>User
+         <h1 className={"hover"}><img src={"https://cdn1.iconfinder.com/data/icons/website-internet/48/website_-_male_user-512.png"} className={"ava-img"} alt={""}></img>
           <ul className={"dropdown"}>
             <li className={"droptop"}>
               <Link to={ROUTES.ACCOUNT}>

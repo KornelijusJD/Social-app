@@ -6,9 +6,21 @@
     color: red;
     opacity: 1;
 }
-
+.infront{
+  position: relative;
+  z-index: 50;
+}
+div{
+  z-index: 5;
+}
+.ava-img{
+  border-radius: 60%;
+  opacity: 1;
+  height: 50px;
+  width: 50px;
+  size: 10px;
+}
 .mybody{
-
 background-color: "blue";
 position: relative;
 height: 10;
@@ -16,13 +28,15 @@ height: 10;
 
 html{
     background-color: cadetblue;
-    z-index:5;
+    z-index: 0;
+    position: relative;
 }
 /* Style the header with a grey background and some padding */
 .header {
     overflow: hidden;
     background-color: lightblue;
     padding: 20px 10px;
+    z-index: 20;
   }
   
   /* Style the header links */
@@ -112,7 +126,7 @@ html{
 }
 .box:after{
     content:'';
-    position:absolute;
+    position:block;
     bottom:-10px;
     width:10px;
     height:10px;
@@ -126,24 +140,26 @@ html{
     transform:rotate(45deg);
 }
 .hover{
-    margin:10px;
+    margin:1px;
+    right: 10px;
+    top: 10px;
     float:left;
-    position:relative;
+    position:fixed;
     cursor:pointer;
 }
 
 .hover:hover .dropdown{
-    display: block;
-    /*position: absolute;
-    z-index: 1;*/
+    display: inline-block;
+    position: absolute;
+    z-index: 30;
 }
 
 
 .dropdown{
-  /*position: absolute;*/
+  position: absolute;
     top: 100%;
     left: 0;
-    z-index: 100;
+    z-index: 1000000000;
     display: none;
     float: left;
     min-width: 160px;
