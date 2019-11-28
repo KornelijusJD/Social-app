@@ -39,3 +39,5 @@ const App = () => (
   </Router>
 );
 export default withAuthentication(App);
+//<Article date={""}/>
+//commented down here for testing
