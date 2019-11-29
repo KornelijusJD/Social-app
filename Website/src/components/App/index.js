@@ -38,7 +38,7 @@ const App = () => (
       <Route path={ROUTES.POSTED} component={Posted} />
       <Route path={ROUTES.ARTICLE} component={Article} />
     </div>
-  </Router>
+  </Router> 
 );
 export default withAuthentication(App);
 //<Article date={""}/>

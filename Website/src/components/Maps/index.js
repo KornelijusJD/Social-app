@@ -5,7 +5,7 @@ import React from 'react';
 const Maps = () => (
 
 
-  /*<div id="mapid" style="width: 600px; height: 400px">{
+  /* <div id="mapid" style="width: 600px; height: 400px">{
     var map = L.map('map').setView([-41.2858, 174.78682], 14);
         mapLink = 
             '<a href="http://openstreetmap.org">OpenStreetMap</a>';

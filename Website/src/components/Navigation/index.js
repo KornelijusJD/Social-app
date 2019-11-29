@@ -96,7 +96,7 @@ const NavigationAuth = ({ authUser }) => (
 
 const NavigationNonAuth = () => (
   <ul>
-   
+    
         
       <div className={"header-right"}>
         <Link to={ROUTES.SIGN_IN}>Sign In</Link>
