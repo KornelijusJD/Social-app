@@ -7,5 +7,6 @@ export const ADMIN = '/admin';
 export const PASSWORD_FORGET = '/pw-forget';
 export const UNAUTHORIZED = '/unauthorized';
 export const MESSAGING = '/messaging';
+export const MAPS = '/maps';
 export const POSTED = '/posted';
 export const ARTICLE = '/article';

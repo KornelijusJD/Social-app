@@ -73,6 +73,11 @@ const NavigationAuth = ({ authUser }) => (
                 <Link to={ROUTES.MESSAGING}>
                 Messaging</Link>
               </div>
+
+              <div className={"pull-left"}>
+                <Link to={ROUTES.MAPS}>
+                Maps</Link>
+              </div>
                   
               <div className={"pull-right"}>
                   <SignOutButton />
