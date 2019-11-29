@@ -3,7 +3,7 @@ import Article from '../Article';
 const Landing = () => (
   <div>
     <h1>Landing</h1>
-    <Article date={"2019-11-28 22:33:54"}/>
+    <Article date={"KYthyy7D"}/>
   </div>
 );
 
