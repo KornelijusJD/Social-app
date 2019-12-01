@@ -62,17 +62,18 @@ class AdminPage extends Component {
     
     const id = this.makeid(8);  //set random base64 article ID
     const today = new Date();
-    const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    /*const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    const dateTime = date+' '+time; //set current date and time
+    const dateTime = date+' '+time; //set current date and time*/
+    const timestamp = (today.getTime())*-1;
 
     this.props.firebase
-      .article(dateTime) 
+      .article(id) 
       .set({
         base64,
         title,
         body,
-        id
+        timestamp
       })
       .then(() => {
         this.setState({ ...INITIAL_STATE });

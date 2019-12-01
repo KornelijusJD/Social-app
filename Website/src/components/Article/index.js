@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Articles from './articles';
 //import { compose } from 'recompose';
 import { withFirebase } from '../Firebase';
 //import { withAuthorization } from '../Session';
@@ -6,9 +7,10 @@ import { withFirebase } from '../Firebase';
 //import * as ROUTES from '../../constants/routes';
 
 const INITIAL_STATE = {
+  data: [],
   base64: null,
   title: "",
-  body: ""
+  body: "",
 };
 
 class ArticleBase extends Component {
@@ -17,16 +19,14 @@ class ArticleBase extends Component {
     this.state = {...INITIAL_STATE};
   }
 
-  date = this.props.date;
+  id = this.props.id;
 
   componentDidMount() { //populate article
-    this.props.firebase.article(this.date)
+    this.props.firebase.articles()
       .once('value')
       .then(snapshot => {
         this.setState({
-          base64: snapshot.val().base64,
-          title: snapshot.val().title,
-          body: snapshot.val().body
+          data: snapshot.val(),
         });
       });
   }
@@ -36,18 +36,11 @@ class ArticleBase extends Component {
   }
 
   render() {
-    const {
-      base64,
-      title,
-      body
-    } = this.state;
-
+    
     return(
       <div>
         <h1>Article Prototype</h1>
-        <img src={base64} alt={""}></img>
-        <p>{title}</p>
-        <p>{body}</p>
+        <ul><Articles data={this.state.data} /></ul>
       </div>
     );
   }
