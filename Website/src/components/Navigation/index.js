@@ -73,6 +73,11 @@ const NavigationAuth = ({ authUser }) => (
                 <Link to={ROUTES.MESSAGING}>
                 Messaging</Link>
               </div>
+
+              <div className={"pull-left"}>
+                <Link to={ROUTES.MAPS}>
+                Maps</Link>
+              </div>
                   
               <div className={"pull-right"}>
                   <SignOutButton />
@@ -91,7 +96,7 @@ const NavigationAuth = ({ authUser }) => (
 
 const NavigationNonAuth = () => (
   <ul>
-   
+    
         
       <div className={"header-right"}>
         <Link to={ROUTES.SIGN_IN}>Sign In</Link>

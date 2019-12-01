@@ -12,6 +12,7 @@ import AccountPage from '../Account';
 import AdminPage from '../Admin';
 import Unauthorized from '../Unauthorized';
 import Messaging from '../Messaging';
+import Maps from '../Maps';
 import Posted from '../Posted';
 import Article from '../Article';
 //Import react component end
@@ -33,10 +34,11 @@ const App = () => (
       <Route path={ROUTES.ADMIN} component={AdminPage} />
       <Route path={ROUTES.UNAUTHORIZED} component={Unauthorized} />
       <Route path={ROUTES.MESSAGING} component={Messaging} />
+      <Route path={ROUTES.MAPS} component={Maps} />
       <Route path={ROUTES.POSTED} component={Posted} />
       <Route path={ROUTES.ARTICLE} component={Article} />
     </div>
-  </Router>
+  </Router> 
 );
 export default withAuthentication(App);
 //<Article date={""}/>
