@@ -1,5 +1,6 @@
 import React from 'react';
 import './nav.css';
+import Logo from "./Selfcare.png";
 import { Link } from 'react-router-dom';
 
 import SignOutButton from '../SignOut';
@@ -11,7 +12,7 @@ const Navigation = () => (
   
     <div className={"header"}>
       <Link to={ROUTES.LANDING} className={"logo"}>
-          <img src={"https://dynamic.brandcrowd.com/asset/logo/d3a6e797-2c55-4b35-adf0-4ac763b95808/logo?v=4&text=Self-Care"} className={"care"} alt={"logo"}></img></Link>
+          <img src={Logo} className={"care"} alt={"logo"}></img></Link>
   <div>
     <AuthUserContext.Consumer>
       {authUser =>
