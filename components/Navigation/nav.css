@@ -6,20 +6,6 @@
     color: red;
     opacity: 1;
 }
-.logo{
-  height:100px;
-  width:100px;
-  left:20px;
-}
-.logo :hover{
-  background-color:lightblue;
-}
-.care{
-  height:100px;
-  width:100px;
-  left:20px;
-}
-.care :hover
 .infront{
   position: relative;
   z-index: 50;
@@ -33,15 +19,6 @@ div{
   height: 50px;
   width: 50px;
   size: 10px;
-}
-.ava-img2{
-  margin-left:10%;
-  margin-right:10%;
-  border-radius: 60%;
-  opacity: 1;
-  height: 50%;
-  width: 80%;
-  size: 400px;
 }
 .mybody{
 background-color: "blue";
@@ -58,8 +35,7 @@ html{
 .header {
     overflow: hidden;
     background-color: lightblue;
-    
-    padding: 0px 0px;
+    padding: 20px 10px;
     z-index: 20;
   }
   
@@ -96,11 +72,9 @@ html{
   /* Float the link section to the right */
   .header-right {
     float: right;
-    margin-right: 50px;
-    
   }
   
-  /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other 
+  /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
   @media screen and (max-width: 500px) {
     .header a {
       float: none;
@@ -110,7 +84,7 @@ html{
     .header-right {
       float: none;
     }
-  }*/
+  }
 .sout {
   border: none;
     display: inline-block;
@@ -170,20 +144,14 @@ html{
     right: 10px;
     top: 10px;
     float:left;
-    position:absolute;
+    position:fixed;
     cursor:pointer;
 }
 
 .hover:hover .dropdown{
-  background-color:rgb(142, 205, 207);
     display: inline-block;
     position: absolute;
     z-index: 30;
-    border: 1px solid;
-    padding: 10px;
-    box-shadow: 5px 5px 5px 5px lightslategray;
-    max-width:500px;
-    width:auto;
 }
 
 
@@ -191,10 +159,10 @@ html{
   position: absolute;
     top: 100%;
     left: 0;
-    z-index: 100;
+    z-index: 1000000000;
     display: none;
     float: left;
-    min-width: 250px;
+    min-width: 160px;
     padding: 5px 0;
     margin: 2px 0 0;
     font-size: 14px;
@@ -206,11 +174,8 @@ html{
     border: 1px solid #ccc;
     border: 1px solid rgba(0,0,0,.15);
     border-radius: 4px;
-    -webkit-box-shadow: 5px 10px 8px 10px #888888;
-    border: 1px solid;
-    padding: 10px;
-    box-shadow: 5px 10px 8px 10px #888888;
-    
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
 }
 .dropdown {
   box-shadow: 0 1px 1px rgba(0,0,0,0.1);

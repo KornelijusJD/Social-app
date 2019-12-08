@@ -74,9 +74,7 @@ const config = {
 
     article = aid => this.db.ref('articles/'+aid);
 
-    articles = () => this.db.ref('articles');
-
-    countRef = () => this.db.ref('articles/count');
+    articles = () => this.db.ref('articles/');
   }
   
   export default Firebase;

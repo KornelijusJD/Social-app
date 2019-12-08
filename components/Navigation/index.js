@@ -7,11 +7,18 @@ import * as ROUTES from '../../constants/routes';
 
 import { AuthUserContext } from '../Session';
 import * as ROLES from '../../constants/roles';
+
+/*const navstyle = {
+  color: "gray",
+  backgroundColor: "blue",
+  positition: "relative",
+  height: 100000,
+  };*/
+
 const Navigation = () => (
-  
     <div className={"header"}>
       <Link to={ROUTES.LANDING} className={"logo"}>
-          <img src={"https://dynamic.brandcrowd.com/asset/logo/d3a6e797-2c55-4b35-adf0-4ac763b95808/logo?v=4&text=Self-Care"} className={"care"} alt={"logo"}></img></Link>
+          <b>SELF</b><i>care</i></Link>
   <div>
     <AuthUserContext.Consumer>
       {authUser =>
@@ -24,7 +31,7 @@ const Navigation = () => (
 );
 
 const NavigationAuth = ({ authUser }) => (
-  <div>
+  <div className={"infront"}>
     <AuthUserContext.Consumer>
         {authUser => (
           <div>
@@ -34,34 +41,47 @@ const NavigationAuth = ({ authUser }) => (
     </AuthUserContext.Consumer>
     <ul>
         <Link to={ROUTES.HOME}>
-          My Home</Link>
+          Home</Link>
+     
+        <Link to={ROUTES.MESSAGING}>
+          Messaging</Link>
       
         <div className={"header-right"}>
+      
+          <Link to={ROUTES.ACCOUNT}  className={"active"} >
+          Account</Link>
+      
           {!!authUser.roles[ROLES.ADMIN] && (
           
           <Link to={ROUTES.ADMIN}>
-            Article Submission</Link>
+            Admin</Link>
 
           )}
           
-         <h1 className={"hover"}><img src={"https://cdn1.iconfinder.com/data/icons/website-internet/48/website_-_male_user-512.png"} className={"ava-img"} alt={"outside"}></img>
+         <h1 className={"hover"}><img src={"https://cdn1.iconfinder.com/data/icons/website-internet/48/website_-_male_user-512.png"} className={"ava-img"} alt={""}></img>
           <ul className={"dropdown"}>
             <li className={"droptop"}>
-            <Link to={ROUTES.ACCOUNT}>
-              
-              <img src={"https://st2.depositphotos.com/8440746/11967/v/950/depositphotos_119670652-stock-illustration-user-icon-man-profile-businessman.jpg"} className={"ava-img2"} alt={"inside"}></img>
+              <Link to={ROUTES.ACCOUNT}>
               Account</Link>
-              </li>
+            </li>
             <li className={"dropmid"}>
-            <div className={"pull-left"}>
+              <Link to={ROUTES.HOME}>
+              Home</Link>
+            </li>
+            <li className={"dropbot"}>
+              <div className={"pull-left"}>
                 <Link to={ROUTES.MESSAGING}>
                 Messaging</Link>
               </div>
+
+              <div className={"pull-left"}>
+                <Link to={ROUTES.MAPS}>
+                Maps</Link>
+              </div>
+                  
               <div className={"pull-right"}>
                   <SignOutButton />
               </div>
-            </li>
-            <li className={"dropbot"}>
               
             </li>
           </ul>
@@ -76,7 +96,7 @@ const NavigationAuth = ({ authUser }) => (
 
 const NavigationNonAuth = () => (
   <ul>
-   
+    
         
       <div className={"header-right"}>
         <Link to={ROUTES.SIGN_IN}>Sign In</Link>

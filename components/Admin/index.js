@@ -8,7 +8,6 @@ import * as ROUTES from '../../constants/routes';
 //pack initial state values
 const INITIAL_STATE ={
   id: null,
-  imageToUpload: null,
   base64: null,
   title: "",
   body: "",
@@ -18,10 +17,7 @@ const INITIAL_STATE ={
 class AdminPage extends Component {
   constructor(props) {
     super(props);
-    
-    this.state = {
-      ...INITIAL_STATE  //unpack inital state values
-    };
+    this.state = {...INITIAL_STATE }; //unpack inital state values
   }
 
   //styling begin
@@ -65,13 +61,19 @@ class AdminPage extends Component {
     } = this.state;
     
     const id = this.makeid(8);  //set random base64 article ID
+    const today = new Date();
+    /*const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    const dateTime = date+' '+time; //set current date and time*/
+    const timestamp = (today.getTime())*-1;
 
     this.props.firebase
-      .article(id)
+      .article(id) 
       .set({
         base64,
         title,
-        body
+        body,
+        timestamp
       })
       .then(() => {
         this.setState({ ...INITIAL_STATE });

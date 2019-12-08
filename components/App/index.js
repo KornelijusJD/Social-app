@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+//Import react component begin
 import Navigation from '../Navigation';
 import LandingPage from '../Landing';
 import SignUpPage from '../SignUp';
@@ -10,7 +12,11 @@ import AccountPage from '../Account';
 import AdminPage from '../Admin';
 import Unauthorized from '../Unauthorized';
 import Messaging from '../Messaging';
+import Maps from '../Maps';
 import Posted from '../Posted';
+import Article from '../Article';
+//Import react component end
+
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
 
@@ -28,8 +34,12 @@ const App = () => (
       <Route path={ROUTES.ADMIN} component={AdminPage} />
       <Route path={ROUTES.UNAUTHORIZED} component={Unauthorized} />
       <Route path={ROUTES.MESSAGING} component={Messaging} />
+      <Route path={ROUTES.MAPS} component={Maps} />
       <Route path={ROUTES.POSTED} component={Posted} />
+      <Route path={ROUTES.ARTICLE} component={Article} />
     </div>
-  </Router>
+  </Router> 
 );
 export default withAuthentication(App);
+//<Article date={""}/>
+//commented down here for testing
