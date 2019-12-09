@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withFirebase } from '../Firebase';
 const INITIAL_STATE = {
+  //password: '',
   passwordOne: '',
   passwordTwo: '',
   error: null,
@@ -26,11 +27,19 @@ class PasswordChangeForm extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
   render() {
-    const { passwordOne, passwordTwo, error } = this.state;
+    const { /*password, */passwordOne, passwordTwo, error } = this.state;
     const isInvalid =
       passwordOne !== passwordTwo || passwordOne === '';
     return (
       <form onSubmit={this.onSubmit}>
+        {/*<input
+          name="password"
+          value={password}
+          onChange={this.onChange}
+          type="password"
+          placeholder="Current Password"
+          //this should be here in my opinion but can decide as we go along
+        />*/}
         <input
           name="passwordOne"
           value={passwordOne}
