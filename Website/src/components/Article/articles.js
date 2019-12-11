@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './article.css';
 
 class Articles extends Component {
 
@@ -13,8 +14,8 @@ class Articles extends Component {
                 data.map((data, i) =>
                 <div key={i}>
                     <h2>{data.title}</h2>
-                    <img src={data.base64} alt=""></img>
-                    <p>{data.body}</p>
+                    <img src={data.base64} alt="" className={"image_limit"}></img>
+                    <p className={"article_text"}>{data.body}</p>
                 </div>
                 )
             )

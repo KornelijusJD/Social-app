@@ -1,0 +1,14 @@
+.article_text{
+    word-wrap: break-word;
+    text-align: center;
+    margin-right: 10%;
+    margin-left: 10%; 
+}
+.image_limit{
+    max-width: 800px;
+    max-height: 600px;
+    text-align:center;
+}
+.centered{
+    text-align: center;
+}

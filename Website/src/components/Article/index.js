@@ -38,7 +38,7 @@ class ArticleBase extends Component {
   render() {
     
     return(
-      <div>
+      <div className={"centered"}>
         <h1>Article Prototype</h1>
         <ul><Articles data={this.state.data} /></ul>
       </div>
