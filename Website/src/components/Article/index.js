@@ -39,7 +39,7 @@ class ArticleBase extends Component {
     
     return(
       <div className={"centered"}>
-        <h1>Article Prototype</h1>
+        <h1>Articles</h1>
         <ul><Articles data={this.state.data} /></ul>
       </div>
     );
