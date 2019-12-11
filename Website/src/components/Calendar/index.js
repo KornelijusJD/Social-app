@@ -19,7 +19,7 @@ class Calendar extends Component {
 
     componentDidMount(){
         const date = new Date();
-        const month = date.getMonth()-5;
+        const month = date.getMonth();
         const year = date.getFullYear();
         const firstDayNum = this.startDay(year, month);
         this.setState({firstDayNum: firstDayNum, firstDay: this.getDayName(firstDayNum), daysInMonth: this.daysInMonth(year, month+1), month:month, year:year});
