@@ -34,8 +34,32 @@ class Calendar extends Component {
         return days[day];
     }
 
+    getMonthName = (month) => {
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        return months[month];
+    }
+
     daysInMonth = (year, month) => {    //get number of days in the month (not 0 indexed for some reason)
         return new Date(year, month, 0).getDate();
+    }
+
+    onClick = event => {                //next and previous month buttons
+        const change = (event.target.name==="Previous") ? -1 : 1;
+        let month = this.state.month;
+        let year = this.state.year;
+        if(month+change===12) {
+            month=0;
+            year+=1;
+        }
+        else if(month+change===-1) {
+            month=11;
+            year-=1;
+        }
+        else {
+            month+=change;
+        }
+        const firstDayNum = this.startDay(year, month);
+        this.setState({firstDayNum: firstDayNum, firstDay: this.getDayName(firstDayNum), daysInMonth: this.daysInMonth(year, month+1), month:month, year:year});
     }
 
     render() {
@@ -89,17 +113,29 @@ class Calendar extends Component {
             weekdaysTemp.push(this.getDayName(i));
         }
 
+        const monthName = this.getMonthName(dates.month);
+
         let weekdays = weekdaysTemp.map((d, i) => {
             return (
                 <th key={i}>{d}</th>
             );
         });
-        
         return( //render calendar
             <div>
                 <h1>Calendar</h1>
+                <button name="Previous" onClick={this.onClick}>Previous</button>
+                <button name="Next" onClick={this.onClick}>Next</button>
                 <table>
                     <thead>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th>{monthName}</th>
+                            <th>{dates.year}</th>
+                        </tr>
                         <tr>
                             {weekdays}
                         </tr>
