@@ -1,0 +1,64 @@
+#d1 {
+    color: rgb(0, 0, 0);
+    }
+        body {
+            background-color: lightblue;
+            border-style: outset;
+            height:"auto";
+            background-image: "frank.jpg";
+
+          }
+          #signUpPassword
+          {
+            width: 200px;
+            text-align: center;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+            background-position: 10px 10px; 
+            background-repeat: no-repeat;
+            padding: 12px 20px 12px 40px;
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+          } 
+          
+        #signUpEmail
+        {
+            width: 200px;
+            text-align: center;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+            background-position: 10px 10px; 
+            background-repeat: no-repeat;
+            padding: 12px 20px 12px 40px;
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+        }
+        #signUpButton
+        {
+                
+                
+                background-color: #f1f1f1;
+                color: black;
+                font-size: 16px;
+                padding: 16px 30px;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+                text-align: center;
+        }
+        #signUpButton:hover {
+            background-color: rgb(74, 253, 169);
+            color: white;
+          }
+          #div2 {
+            background-image: url('frank.jpg');
+            background-size: 1900px;
+            background-repeat: no-repeat;
+            
+          }
