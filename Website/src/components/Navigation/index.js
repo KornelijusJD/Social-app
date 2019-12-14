@@ -38,7 +38,6 @@ const NavigationAuth = ({ authUser }) => (
           My Home</Link>
           <Link to={ROUTES.CALENDAR}>
             Calendar</Link>
-      
         <div className={"header-right"}>
           {!!authUser.roles[ROLES.ADMIN] && (
           
@@ -46,6 +45,10 @@ const NavigationAuth = ({ authUser }) => (
             Article Submission</Link>
             
 
+          )}
+
+          {!!authUser.roles[ROLES.ADMIN] && (
+            <Link to={ROUTES.EVENTS}>Events</Link>
           )}
           
           

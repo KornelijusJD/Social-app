@@ -11,3 +11,4 @@ export const MAPS = '/maps';
 export const POSTED = '/posted';
 export const ARTICLE = '/article';
 export const CALENDAR= '/calendar';
+export const EVENTS = '/events';

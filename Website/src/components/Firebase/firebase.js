@@ -75,6 +75,11 @@ const config = {
     article = aid => this.db.ref('articles/'+aid);
 
     articles = () => this.db.ref('articles/');
+
+    // *** Event API ***
+
+    event = eid => this.db.ref('events/'+eid);
+    events = () => this.db.ref('events/');
   }
   
   export default Firebase;

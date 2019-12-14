@@ -16,6 +16,7 @@ import Maps from '../Maps';
 import Posted from '../Posted';
 import Article from '../Article';
 import Calendar from '../Calendar';
+import Events from '../Events';
 //Import react component end
 
 import * as ROUTES from '../../constants/routes';
@@ -39,6 +40,7 @@ const App = () => (
       <Route path={ROUTES.POSTED} component={Posted} />
       <Route path={ROUTES.ARTICLE} component={Article} />
       <Route path={ROUTES.CALENDAR} component = {Calendar} />
+      <Route path={ROUTES.EVENTS} component = {Events} />
     </div>
   </Router> 
 );
