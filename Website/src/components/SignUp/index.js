@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-
+import './SignUp.css';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
@@ -84,6 +84,7 @@ class SignUpFormBase extends Component {
     return (
       <form onSubmit={this.onSubmit}>
         <input
+          id = 'signUpText'
           name="username"
           value={username}
           onChange={this.onChange}
@@ -91,6 +92,7 @@ class SignUpFormBase extends Component {
           placeholder="Full Name"
         />
         <input
+           id = 'signUpText'
           name="email"
           value={email}
           onChange={this.onChange}
@@ -98,6 +100,7 @@ class SignUpFormBase extends Component {
           placeholder="Email Address"
         />
         <input
+          id = 'signUpText'
           name="passwordOne"
           value={passwordOne}
           onChange={this.onChange}
@@ -105,13 +108,14 @@ class SignUpFormBase extends Component {
           placeholder="Password"
         />
         <input
+          id = 'signUpText'
           name="passwordTwo"
           value={passwordTwo}
           onChange={this.onChange}
           type="password"
           placeholder="Confirm Password"
         />
-        <button disabled={isInvalid} type="submit">
+        <button id = 'signUpButton' disabled={isInvalid} type="submit">
           Sign Up
         </button>
 
