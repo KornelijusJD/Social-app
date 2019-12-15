@@ -12,10 +12,11 @@ class Articles extends Component {
         if(!!data&&data.length>0) {
             return(
                 data.map((data, i) =>
-                <div key={i}>
+                <div key={i} className={"bungus"}>
                     <h2>{data.title}</h2>
                     <img src={data.base64} alt="" className={"image_limit"}></img>
                     <p className={"article_text"}>{data.body}</p>
+                    <p> </p>
                 </div>
                 )
             )

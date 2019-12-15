@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './calendar.css';
 //const tempToday = (new Date()).getDate();
 
 const INITIAL_STATE = {
@@ -35,7 +35,7 @@ class Calendar extends Component {
     }
 
     getMonthName = (month) => {
-        const months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         return months[month];
     }
 
@@ -68,7 +68,7 @@ class Calendar extends Component {
         let blanks = [];    //fill calendar with blanks for empty dates before first day of month
         for (let i = 0; i < dates.firstDayNum; i++) {
             blanks.push(
-            <td className="calendar-day empty" key={"blank"+i}>{""}</td>
+            <td className="calendar-day-empty" key={"blank"+i}>{""}</td>
             );
         };
 
@@ -102,7 +102,7 @@ class Calendar extends Component {
 
         let trElems = rows.map((d, i) => {  //map each index to the table
             return (
-                <tr key={i*100}>
+                <tr key={i*100} >
                     {d}
                 </tr>
             );
@@ -121,21 +121,14 @@ class Calendar extends Component {
             );
         });
         return( //render calendar
-            <div>
+            <div className={"dow"}>
                 <h1>Calendar</h1>
+                <h2>{monthName}    {dates.year}</h2>
                 <button name="Previous" onClick={this.onClick}>Previous</button>
                 <button name="Next" onClick={this.onClick}>Next</button>
+                <div className={"dow"}>
                 <table>
                     <thead>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <th>{monthName}</th>
-                            <th>{dates.year}</th>
-                        </tr>
                         <tr>
                             {weekdays}
                         </tr>
@@ -144,6 +137,7 @@ class Calendar extends Component {
                         {trElems}
                     </tbody>
                 </table>
+                </div>
             </div>
         );
     };

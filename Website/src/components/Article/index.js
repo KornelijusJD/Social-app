@@ -31,10 +31,6 @@ class ArticleBase extends Component {
       });
   }
 
-  componentWillUnmount() {
-    this.setState({...INITIAL_STATE});
-  }
-
   render() {
     
     return(

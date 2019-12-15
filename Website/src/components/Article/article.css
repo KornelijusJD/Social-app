@@ -3,6 +3,7 @@
     text-align: center;
     margin-right: 10%;
     margin-left: 10%; 
+    padding-right: 40px;
 }
 .image_limit{
     max-width: 700px;
@@ -15,4 +16,12 @@
 .article_text_i{
     margin-right: 8%;
     margin-left: 10%;
+}
+.bungus{
+    border:3.125px solid black;
+    box-shadow: 5px 10px 8px 2px #888888;
+    border-style: groove;
+    margin: 30px;
+    background-color: #AEC7D8;
+    
 }

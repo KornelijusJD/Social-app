@@ -12,7 +12,7 @@
   left:20px;
 }
 .logo :hover{
-  background-color:lightblue;
+  background-color:cadetblue;
 }
 .care{
   height:100px;
@@ -24,9 +24,9 @@
   position: relative;
   z-index: 50;
 }
-div{
+/*div{
   z-index: 5;
-}
+}*/
 .ava-img{
   border-radius: 60%;
   opacity: 1;
@@ -50,14 +50,13 @@ height: 10;
 }
 
 html{
-    background-color: cadetblue;
+    background-color: lightblue;
     z-index: 0;
     position: relative;
 }
-/* Style the header with a grey background and some padding */
 .header {
     overflow: hidden;
-    background-color: lightblue;
+    background-color: cadetblue;
     
     padding: 0px 0px;
     z-index: 20;
