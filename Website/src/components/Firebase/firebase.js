@@ -65,21 +65,17 @@ const config = {
 
 
     // *** User API ***
-    
     user = uid => this.db.ref(`users/`+uid);
-  
     users = () => this.db.ref('users');
 
     // *** Article API ***
-
     article = aid => this.db.ref('articles/'+aid);
-
     articles = () => this.db.ref('articles/');
 
     // *** Event API ***
-
     event = eid => this.db.ref('events/'+eid);
-    events = () => this.db.ref('events/');
+    events = () => this.db.ref('events');
+    eventDate = eDate => this.db.ref('events').orderByChild('date').equalTo(eDate);
   }
   
   export default Firebase;

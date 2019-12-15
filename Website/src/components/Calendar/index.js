@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './calendar.css';
+import { withFirebase } from '../Firebase';
+import Events from './events';
 //const tempToday = (new Date()).getDate();
 
 const INITIAL_STATE = {
@@ -8,7 +10,8 @@ const INITIAL_STATE = {
     daysInMonth: null,
     today: null,
     month: null,
-    year: null
+    year: null,
+    data: []
 }
 
 class Calendar extends Component {
@@ -62,6 +65,23 @@ class Calendar extends Component {
         this.setState({firstDayNum: firstDayNum, firstDay: this.getDayName(firstDayNum), daysInMonth: this.daysInMonth(year, month+1), month:month, year:year});
     }
 
+    onTDClick = event => {  //get all events for day on click
+        const year = this.state.year.toString();
+        const month = (this.state.month+1).toString();
+        const day = event.target.innerHTML;
+        const qday = (parseInt(day)<10) ? "0"+day : day.toString(); //parse day for query
+
+        const query = year+"-"+month+"-"+qday;  //convert data into usable query
+
+        this.props.firebase.eventDate(query)
+        .once('value')
+        .then(snapshot => {
+            this.setState({
+              data: snapshot.val(),
+            });
+        });
+    }
+
     render() {
         const dates = {...this.state}; 
 
@@ -75,7 +95,7 @@ class Calendar extends Component {
         let daysInMonth = [];   //fill calendar with actual dates
         for (let d = 1; d <= dates.daysInMonth; d++) {
             daysInMonth.push(
-                <td key={d} className="calendar-day">
+                <td key={d} className="calendar-day" onClick={this.onTDClick}>
                     {d}
                 </td>
             );
@@ -120,27 +140,31 @@ class Calendar extends Component {
                 <th key={i}>{d}</th>
             );
         });
-        return( //render calendar
-            <div className={"dow"}>
-                <h1>Calendar</h1>
-                <h2>{monthName}    {dates.year}</h2>
-                <button name="Previous" onClick={this.onClick}>Previous</button>
-                <button name="Next" onClick={this.onClick}>Next</button>
+        return( //render calendar and events on calendar click
+            <div>
                 <div className={"dow"}>
-                <table>
-                    <thead>
-                        <tr>
-                            {weekdays}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {trElems}
-                    </tbody>
-                </table>
+                    <h1>Calendar</h1>
+                    <h2>{monthName}    {dates.year}</h2>
+                    <button name="Previous" onClick={this.onClick}>Previous</button>
+                    <button name="Next" onClick={this.onClick}>Next</button>
+                    <div className={"dow"}>
+                    <table>
+                        <thead>
+                            <tr>
+                                {weekdays}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {trElems}
+                        </tbody>
+                    </table>
+                    </div>
                 </div>
+                <h1>Events</h1>
+                <ul><Events data={this.state.data}/></ul>
             </div>
         );
     };
 };
 
-export default Calendar;
+export default withFirebase(Calendar);
