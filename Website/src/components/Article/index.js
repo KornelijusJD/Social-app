@@ -31,6 +31,11 @@ class ArticleBase extends Component {
       });
   }
 
+  componentWillUnmount() {
+    this.props.firebase.articles()
+      .off();
+  }
+
   render() {
     
     return(
