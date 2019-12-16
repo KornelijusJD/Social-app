@@ -67,11 +67,11 @@ class Calendar extends Component {
 
     onTDClick = event => {  //get all events for day on click
         const year = this.state.year.toString();
-        const month = (this.state.month+1).toString();
+        const month = (this.state.month+1);
         const day = event.target.innerHTML;
         const qday = (parseInt(day)<10) ? "0"+day : day.toString(); //parse day for query
-
-        const query = year+"-"+month+"-"+qday;  //convert data into usable query
+        const qmonth = (month<10) ? "0"+month : month.toString();   //parse month for query
+        const query = year+"-"+qmonth+"-"+qday;  //convert data into usable query
 
         this.props.firebase.eventDate(query)
         .once('value')
