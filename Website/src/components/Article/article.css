@@ -6,8 +6,8 @@
     padding-right: 40px;
 }
 .image_limit{
-    max-width: 700px;
-    max-height: 600px;
+    max-width: 94%;
+    max-height: auto;
     text-align:center;
 }
 .centered{
