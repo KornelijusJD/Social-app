@@ -1,0 +1,27 @@
+.headerH{
+    word-wrap: break-word;
+    text-align: center;
+    margin-right: 10%;
+    margin-left: 10%; 
+    padding-right: 40px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    padding: 10%;
+    background-color: #AEC7D8;
+  }
+  
+  .grid-item {
+    font-size: 108%;
+    text-align: center;
+    padding: 2%;
+    text-rendering: geometricPrecision;
+  }
+
+  .images{
+    max-width: 90%;
+    box-shadow: 4px 8px 6px 1px #888888;
+    text-align:center;
+}

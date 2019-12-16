@@ -38,6 +38,8 @@ const NavigationAuth = ({ authUser }) => (
           My Home</Link>
           <Link to={ROUTES.CALENDAR}>
             Calendar</Link>
+            <Link to={ROUTES.LINKS}>
+            Helpful Links</Link> 
         <div className={"header-right"}>
           {!!authUser.roles[ROLES.ADMIN] && (
           
