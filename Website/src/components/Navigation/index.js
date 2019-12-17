@@ -38,8 +38,10 @@ const NavigationAuth = ({ authUser }) => (
           My Home</Link>
           <Link to={ROUTES.CALENDAR}>
             Calendar</Link>
-            <Link to={ROUTES.LINKS}>
-            Helpful Links</Link> 
+            {!!authUser.roles[ROLES.ADMIN] && (
+            <Link to={ROUTES.EVENTS}>Events</Link>
+          )}
+            
         <div className={"header-right"}>
           {!!authUser.roles[ROLES.ADMIN] && (
           
@@ -49,9 +51,9 @@ const NavigationAuth = ({ authUser }) => (
 
           )}
 
-          {!!authUser.roles[ROLES.ADMIN] && (
-            <Link to={ROUTES.EVENTS}>Events</Link>
-          )}
+          
+          <Link to={ROUTES.LINKS}>
+            Helpful Links</Link> 
           
           
          <h1 className={"hover"}><img src={"https://cdn1.iconfinder.com/data/icons/website-internet/48/website_-_male_user-512.png"} className={"ava-img"} alt={"outside"}></img>
